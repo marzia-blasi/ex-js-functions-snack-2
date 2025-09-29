@@ -56,14 +56,27 @@ function tempoScaduto() {
   console.log("Tempo scaduto");
 }
 
-function creaTimer() {
-  setTimeout(tempoScaduto, 1000);
+function creaTimer(ms) {
+  setTimeout(tempoScaduto, ms);
 }
 
-creaTimer();
+creaTimer(5000);
 
-// 🏆 Snack 5
-// Crea una funzione stampaOgniSecondo con setInterval.
+// 🏆 Snack 5 Crea una funzione stampaOgniSecondo con setInterval.
+
 // Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
 
 // Nota: Questa funzione creerà un loop infinito. Interrompilo manualmente o usa clearInterval() in un altro script.
+
+function saluto(text) {
+  const int = setInterval(() => {
+    console.log(text);
+  }, 1000);
+
+  setTimeout(() => {
+    clearInterval(int);
+    console.log("fine");
+  }, 6000);
+}
+
+saluto("ciaooooo Pippo");
