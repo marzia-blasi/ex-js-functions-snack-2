@@ -48,9 +48,19 @@ const eseguiOperazione = (a, b, callback) => callback(a, b);
 
 console.log(eseguiOperazione(5, 2, sottrazione));
 
-// 🏆 Snack 4
-// Crea un generatore di funzioni creaTimer
+// 🏆 Snack 4 Crea un generatore di funzioni creaTimer
+
 // Scrivi una funzione creaTimer che accetta un tempo (in ms) e restituisce una nuova funzione che avvia un setTimeout per stampare "Tempo scaduto!
+
+function tempoScaduto() {
+  console.log("Tempo scaduto");
+}
+
+function creaTimer() {
+  setTimeout(tempoScaduto, 1000);
+}
+
+creaTimer();
 
 // 🏆 Snack 5
 // Crea una funzione stampaOgniSecondo con setInterval.
