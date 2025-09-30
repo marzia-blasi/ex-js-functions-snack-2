@@ -86,6 +86,7 @@ saluto("ciaooooo Pippo");
 // 🏆 Snack 6
 // Crea un contatore automatico con setInterval
 // Definisci una funzione creaContatoreAutomatico che accetta un intervallo di tempo e restituisce una funzione che avvia un setInterval, incrementando un contatore e stampandolo.
+/*
 function creaContatoreAutomatico(intervallo) {
   let contatore = 0;
 
@@ -100,10 +101,22 @@ function creaContatoreAutomatico(intervallo) {
 const cont = creaContatoreAutomatico(1000);
 
 cont();
+*/
 
 // 🏆 Snack 7
 // Crea una funzione che ferma un timer dopo un certo tempo
 // Scrivi una funzione eseguiEferma che accetta un messaggio, un tempo di avvio e un tempo di stop. Il messaggio deve essere stampato a intervalli regolari, ma si deve fermare dopo il tempo di stop.
+
+function eseguiEferma(messaggio, tempoAvvio, tempoStop) {
+  const intervallo = setInterval(() => {
+    console.log(messaggio);
+  }, tempoAvvio);
+  const stop = setTimeout(() => {
+    clearInterval(intervallo);
+  }, tempoStop);
+}
+
+eseguiEferma("ciao", 1000, 6000);
 
 // 🎯 Snack 8 (Bonus)
 // Crea una funzione che simula un conto alla rovescia
