@@ -131,6 +131,25 @@ eseguiEferma("ciao", 1000, 6000);
 // 1
 // Tempo scaduto!
 
+function contoAllaRovescia(n) {
+  let contatore = n;
+  return () => {
+    const intervallo = setInterval(() => {
+      contatore--;
+      console.log(contatore);
+
+      if (contatore === 0) {
+        clearInterval(intervallo);
+        console.log("Tempo scaduto nuovo");
+      }
+    }, 1000);
+  };
+}
+
+const contoAlla = contoAllaRovescia(10);
+
+contoAlla();
+
 // 🎯 Snack 9 (Bonus)
 // Creare una funzione che esegue una sequenza di operazioni con ritardi
 // Scrivi una funzione sequenzaOperazioni che accetta un array di operazioni (funzioni) e un tempo di intervallo.
@@ -146,3 +165,23 @@ eseguiEferma("ciao", 1000, 6000);
 // Operazione 1
 // Operazione 2
 // Operazione 3
+
+operazioni = [
+  () => console.log("prima"),
+  () => console.log("seconda"),
+  () => console.log("terza"),
+];
+
+function sequenzaOperazioni(arr, tempoInt) {
+  let indice = 0;
+
+  const intervallo = setInterval(() => {
+    arr[indice]();
+    indice++;
+
+    if (indice >= arr.length) {
+      clearInterval(intervallo);
+    }
+  }, tempoInt);
+}
+sequenzaOperazioni(operazioni, 2000);
