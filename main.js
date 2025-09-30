@@ -57,15 +57,17 @@ function tempoScaduto() {
 }
 
 function creaTimer(ms) {
-  setTimeout(tempoScaduto, ms);
+  return () => setTimeout(tempoScaduto, ms);
 }
 
-creaTimer(5000);
+const timer1 = creaTimer(5000);
+const timer2 = creaTimer(2000);
+timer1();
+timer2();
 
 // 🏆 Snack 5 Crea una funzione stampaOgniSecondo con setInterval.
 
 // Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
-
 // Nota: Questa funzione creerà un loop infinito. Interrompilo manualmente o usa clearInterval() in un altro script.
 
 function saluto(text) {
@@ -80,3 +82,54 @@ function saluto(text) {
 }
 
 saluto("ciaooooo Pippo");
+
+// 🏆 Snack 6
+// Crea un contatore automatico con setInterval
+// Definisci una funzione creaContatoreAutomatico che accetta un intervallo di tempo e restituisce una funzione che avvia un setInterval, incrementando un contatore e stampandolo.
+function creaContatoreAutomatico(intervallo) {
+  let contatore = 0;
+
+  return () => {
+    setInterval(() => {
+      contatore++;
+      console.log(contatore);
+    }, intervallo);
+  };
+}
+
+const cont = creaContatoreAutomatico(1000);
+
+cont();
+
+// 🏆 Snack 7
+// Crea una funzione che ferma un timer dopo un certo tempo
+// Scrivi una funzione eseguiEferma che accetta un messaggio, un tempo di avvio e un tempo di stop. Il messaggio deve essere stampato a intervalli regolari, ma si deve fermare dopo il tempo di stop.
+
+// 🎯 Snack 8 (Bonus)
+// Crea una funzione che simula un conto alla rovescia
+// Scrivi una funzione contoAllaRovescia che accetta un numero n e stampa il conto alla rovescia da n a 0, con un intervallo di 1 secondo tra ogni numero. Quando arriva a 0, stampa "Tempo scaduto!" e interrompe il timer.
+// Esempio di utilizzo:
+// contoAllaRovescia(5)
+// Output atteso:
+// 5
+// 4
+// 3
+// 2
+// 1
+// Tempo scaduto!
+
+// 🎯 Snack 9 (Bonus)
+// Creare una funzione che esegue una sequenza di operazioni con ritardi
+// Scrivi una funzione sequenzaOperazioni che accetta un array di operazioni (funzioni) e un tempo di intervallo.
+
+// Ogni operazione deve essere eseguita in sequenza con un ritardo uguale al tempo di intervallo.
+// Esempio di utilizzo:
+// sequenzaOperazioni([
+//   () => console.log("Operazione 1"),
+//   () => console.log("Operazione 2"),
+//   () => console.log("Operazione 3")
+// ], 2000);
+// Output atteso:
+// Operazione 1
+// Operazione 2
+// Operazione 3
